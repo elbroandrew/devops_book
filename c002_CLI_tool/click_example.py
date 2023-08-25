@@ -20,9 +20,17 @@ def decorator_function(wrapped_func):
 
 f = decorator_function(say_name)
 f()
-# and for much easier approach just do:
-@decorator_function
-def say_name2():
-  print("Bill")
+# decorator with argument:
+def decorator_with_arg(name: str):
+  def decorator_function2(wrapped_func):
+    def wrapper():
+      print("Hello")
+      wrapped_func(name)
+    return wrapper
+  return decorator_function2
+
+@decorator_with_arg("Bill")
+def say_name2(name: str):
+  print(name)
 
 say_name2()
