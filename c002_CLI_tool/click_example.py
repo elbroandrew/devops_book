@@ -1,5 +1,7 @@
 #! /usr/bin/python3
 
+import click
+
 """
 Click был придуман для Flask и использует декораторы.
 
@@ -19,7 +21,7 @@ def decorator_function(wrapped_func):
   return wrapper
 
 f = decorator_function(say_name)
-f()
+# f()
 # decorator with argument:
 def decorator_with_arg(name: str):
   def decorator_function2(wrapped_func):
@@ -33,4 +35,22 @@ def decorator_with_arg(name: str):
 def say_name2(name: str):
   print(name)
 
-say_name2()
+# say_name2()
+
+# CLICK example begins here
+'''
+This means that you tie your flags and options directly to the
+parameters of the functions that they expose. You can create a simple
+command-line tool from your functions using click command and
+option functions as decorators before your function.
+'''
+
+@click.command()
+@click.option('--greeting', default="Hi", help="How do you want to greet")
+@click.option('--name', default="Andrew", help="Who to greet")
+def greet(greeting, name):
+  print(f"{greeting, name}")
+
+if __name__ == '__main__':
+  greet()
+
