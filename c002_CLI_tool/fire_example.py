@@ -48,5 +48,12 @@ if __name__ == "__main__":
 run:
 ./fire_example.py Ships list-ships
 ./fire_example.py sailors Hello John
+
+interactive mode:
+./fire_example.py sailors Hello John -- --interactive
+then type a function:
+sailors("hi", "Jhon")
+it will print out:
+hi Jhon
 """
 
