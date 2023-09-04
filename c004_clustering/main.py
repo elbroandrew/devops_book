@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+
 
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.cluster import KMeans
@@ -24,6 +24,12 @@ def kmeans_cluster_housing(clusters=3):
     val_housing_win_df['cluster'] = kmeans.labels_
     return val_housing_win_df
 
+@click.command()
+@click.option("--num", default=3, help="number of clusters")
+def cluster(num):
+    df = kmeans_cluster_housing(clusters=num)
+    click.echo("Clustered DataFrame")
+    click.echo(df.head())
+
 if __name__ == "__main__":
-    res = kmeans_cluster_housing()
-    print(res)
+    cluster()
