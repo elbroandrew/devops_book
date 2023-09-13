@@ -10,5 +10,7 @@ jobs:
     steps:
       - name: Get Date
         id : date
-        run: echo "date=$(date + '%Y-%m-%dT%H:%M:%S')" >> $GITHUB_OUTPUT
+        run: echo "date=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_OUTPUT
+      - name: Print Date
+        run: echo ${{ steps.date.outputs.date }}
 
