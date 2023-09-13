@@ -1,0 +1,14 @@
+name: Just CI test script
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Date
+        id : date
+        run: echo "date=$(date + '%Y-%m-%d__%H_%M_%S')" >> $GITHUB_OUTPUT
+
