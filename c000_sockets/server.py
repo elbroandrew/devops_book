@@ -7,10 +7,10 @@ s = socket.socket(
 
 )
 
-s.bind("127.0.0.1", 5001)
+s.bind(("127.0.0.1", 5001))
 s.listen()
 client_addr, client_sock = s.accept()
-print("Client address: %s, client socket: %s" % client_addr, client_sock)
+print("Client address: %s, client socket: %s" % (client_addr, client_sock))
 s.close()
 
 
